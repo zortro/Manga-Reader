@@ -1,0 +1,79 @@
+.navbar {
+    padding: 1vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(24, 25, 37);
+}
+
+.headerCont {
+    margin: -5px;
+}
+
+.titleCont {
+    font-size: 1vw;
+    display: flex;
+}
+
+.manga {
+    color: white;
+}
+
+.reader {
+    color: rgb(255, 236, 129);
+}
+
+.caption {
+    color: white;
+    font-size: .75vw;
+}
+
+.mangaDex {
+    color: white;
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+}
+
+.Dex {
+    color: white
+}
+
+.mangaDex:hover {
+    color: rgb(255, 131, 74);
+}
+
+.searchCont {
+    align-items: center;
+    height: 1vw;
+    display: flex;
+    justify-content: center;
+}
+
+.searchBar {
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    background-color:rgb(58, 55, 70);
+}
+
+.searchBtn {
+    padding: 10px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    color: white;
+    background-color: rgb(87, 87, 134);
+    transition: all .2s ease-in-out;
+}
+
+.searchBtn:hover {
+    cursor: pointer;
+    color: rgb(87, 87, 134);
+    background-color: white;
+}
+
+.pfp {
+    height: 2vw;
+    width: auto;
+    border-radius: 100%;
+}

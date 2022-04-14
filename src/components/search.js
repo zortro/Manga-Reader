@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { createRoot } from 'react-dom/client'
 
 const axios = require('axios')
@@ -8,18 +8,21 @@ const mangaDetailsUrl = 'https://api.mangadex.org/'
 const mangaCoversUrl = 'https://uploads.mangadex.org/covers/'
 
 //process req
-    
+
 //req by genre
 //req by author name
 //req by manga name
+
+//on hover effects
 
 let coverFileName
 
 //on load req Manga
 export async function load() {
+
     try {
         
-        const mangaRes = await axios.get(mangaDetailsUrl + 'manga?includes[]=author&includes[]=artist&includes[]=cover_art')
+        const mangaRes = await axios.get(mangaDetailsUrl + 'manga?includes[]=author&includes[]=artist&includes[]=cover_art&limit=20')
         
         const mangaDetails = mangaRes.data
         
@@ -40,19 +43,23 @@ export async function load() {
             const cover = `${mangaCoversUrl}${result.id}/${coverFileName}`
 
             return (
-                <li key={result.id} className='series'>
-                    <h1 className='title'>{result.attributes.title.en}</h1>
-                    <img className='cover' src={cover}/>
-                    <p className='description'>{result.attributes.description.en}</p>           
-                </li>
+                <div id='series' key={result.id} className='series'>
+                    <div className='titleCard'>
+                        <h1 id='image' className='title'>{result.attributes.title.en}</h1>
+                    </div> 
+                    <img className='mangaCover' src={cover}/>
+                    <div className='descBackground'>
+                        <p id='description' className='mangaDescription hide'>{result.attributes.description.en}</p>           
+                    </div>
+                </div>
             )
         })
     
-        const loadRes = document.getElementById('results')
+        const loadRes = document.getElementById('defaultResults')
         const root = createRoot(loadRes)
     
         root.render (
-            <div>
+            <div className='renderedSearches'>
                 {searchRes}
             </div>
         )
